@@ -1,2 +1,2 @@
-# Arbetsprov_React_Native
-An app created for a fictive customer
+# Arbetsprov - React Native
+En app skapad för en fiktiv kund.
