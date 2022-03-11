@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Button } from 'react-native';
 import SearchButton from '../buttons/SearchButton';
+import Logo from '../logo/Logo';
 
 function WelcomeScreen(props) {
     return (
@@ -9,6 +10,9 @@ function WelcomeScreen(props) {
             style={styles.background}
             source={require('../assets/WelcomeScreen.jpg')}
         >
+            <View style={styles.logo}>
+                <Logo text={'CityPop'}/>
+            </View>
             <View
                 style={styles.button}
             >
@@ -35,7 +39,12 @@ const styles = StyleSheet.create({
         flex: 0.1,
         alignItems: 'center',
         justifyContent: 'space-between', 
+    },
+    logo: {
+        position: 'absolute',
+        top: '22%',
     }
+    
 })
 
 export default WelcomeScreen;
