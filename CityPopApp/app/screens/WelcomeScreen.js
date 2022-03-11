@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, View, Button } from 'react-native';
 import SearchButton from '../buttons/SearchButton';
 import Logo from '../logo/Logo';
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
     return (
         
         <ImageBackground
@@ -18,7 +18,7 @@ function WelcomeScreen(props) {
             >
                 <SearchButton 
                     text = 'search by city'
-                    onPress = {() => console.log('Search!')} 
+                    onPress = {() => navigation.navigate('CitySearch')} 
                 />
                 <SearchButton
                     text = 'search by country'
@@ -36,13 +36,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     button: {
-        flex: 0.1,
+        flex: 0.105,
+        top: '10%',
         alignItems: 'center',
         justifyContent: 'space-between', 
     },
     logo: {
-        position: 'absolute',
-        top: '22%',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
     
 })
