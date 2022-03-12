@@ -22,7 +22,7 @@ function WelcomeScreen({ navigation }) {
                 />
                 <SearchButton
                     text = 'search by country'
-                    onPress = {() => console.log('Search!')} 
+                    onPress = {() => navigation.navigate('CountrySearch')}
                 />
             </View>
         </ImageBackground>

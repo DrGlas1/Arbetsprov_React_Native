@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CitySearchScreen from './app/screens/CitySearchScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import colors from './app/config/colors';
+import CountrySearchScreen from './app/screens/CountrySearchScreen';
 
 export default function App() {
   return (
@@ -20,6 +21,14 @@ export default function App() {
         <Stack.Screen 
           name="CitySearch"
           component={CitySearchScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: colors.primary,
+          }}
+        />
+        <Stack.Screen 
+          name="CountrySearch"
+          component={CountrySearchScreen}
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
