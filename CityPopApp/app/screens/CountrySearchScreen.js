@@ -15,6 +15,17 @@ function CountrySearchScreen(props) {
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState();
 
+  useEffect(() => {
+    const getData = async () => {
+      const apiResponse = await fetch(
+        `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=10&featureCode=PCLI&orderby=population&username=weknowit`
+      );
+      const apiData = await apiResponse.json();
+      setData(apiData.geonames);
+    };
+    getData();
+  }, [searchInput]);
+
   return (
     <ImageBackground
       style={styles.background}

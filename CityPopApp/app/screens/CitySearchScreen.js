@@ -18,13 +18,14 @@ function CitySearchScreen({ navigation }) {
   useEffect(() => {
     const getData = async () => {
       const apiResponse = await fetch(
-        "http://api.geonames.org/searchJSON?name=london&maxRows=10&username=weknowit"
+        `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=10&cities=cities15000&&orderby=population&username=weknowit`
       );
       const apiData = await apiResponse.json();
       setData(apiData.geonames);
+      console.log(searchInput);
     };
     getData();
-  }, []);
+  }, [searchInput]);
 
   return (
     <ImageBackground

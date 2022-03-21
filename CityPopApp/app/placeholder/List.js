@@ -1,12 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import colors from "../config/colors";
 
 const Item = ({ name }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{name}</Text>
-  </View>
+  <TouchableOpacity onPress={() => console.log(name)}>
+    <View style={styles.item}>
+      <Text style={styles.title}>{name}</Text>
+    </View>
+  </TouchableOpacity>
 );
 
 function List({ searchInput, setClicked, data }) {
@@ -15,11 +24,7 @@ function List({ searchInput, setClicked, data }) {
       return;
     }
 
-    if (
-      item.name
-        .toUpperCase()
-        .includes(searchInput.toUpperCase().trim().replace(/\s/g, ""))
-    ) {
+    if (item.name.toUpperCase().includes(searchInput.toUpperCase().trim())) {
       return <Item name={item.name} />;
     }
   };
