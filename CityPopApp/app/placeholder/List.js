@@ -12,7 +12,7 @@ const Item = ({ name }) => (
 function List({ searchInput, setClicked, data }) {
   const renderItem = ({ item }) => {
     if (searchInput === "") {
-      return <Item name={item.name} />;
+      return;
     }
 
     if (
@@ -30,7 +30,7 @@ function List({ searchInput, setClicked, data }) {
         <FlatList
           data={data}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.geonameId}
         />
       </View>
     </SafeAreaView>

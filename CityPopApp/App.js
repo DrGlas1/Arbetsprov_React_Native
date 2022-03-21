@@ -24,6 +24,7 @@ export default function App() {
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
+            headerTitle: "City Search",
           }}
         />
         <Stack.Screen
@@ -32,6 +33,7 @@ export default function App() {
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
+            headerTitle: "Country Search",
           }}
         />
       </Stack.Navigator>

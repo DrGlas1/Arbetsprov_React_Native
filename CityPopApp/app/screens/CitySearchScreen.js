@@ -13,15 +13,15 @@ import SearchBar from "../searchbars/SearchBar";
 function CitySearchScreen({ navigation }) {
   const [searchInput, setSearchInput] = useState("");
   const [clicked, setClicked] = useState(false);
-  const [fakeData, setFakeData] = useState();
+  const [data, setData] = useState();
 
   useEffect(() => {
     const getData = async () => {
       const apiResponse = await fetch(
-        "https://my-json-server.typicode.com/kevintomas1995/logRocket_searchBar/languages"
+        "http://api.geonames.org/searchJSON?name=london&maxRows=10&username=weknowit"
       );
-      const data = await apiResponse.json();
-      setFakeData(data);
+      const apiData = await apiResponse.json();
+      setData(apiData.geonames);
     };
     getData();
   }, []);
@@ -39,11 +39,7 @@ function CitySearchScreen({ navigation }) {
           setClicked={setClicked}
         />
 
-        <List
-          searchInput={searchInput}
-          data={fakeData}
-          setClicked={setClicked}
-        />
+        <List searchInput={searchInput} data={data} setClicked={setClicked} />
       </SafeAreaView>
     </ImageBackground>
   );
