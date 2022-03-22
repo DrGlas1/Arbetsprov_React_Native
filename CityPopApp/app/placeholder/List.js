@@ -47,11 +47,6 @@ const styles = StyleSheet.create({
     height: "85%",
     width: "100%",
   },
-  item: {
-    margin: 30,
-    borderBottomWidth: 2,
-    borderBottomColor: "lightgrey",
-  },
   title: {
     fontSize: 20,
     fontWeight: "bold",
