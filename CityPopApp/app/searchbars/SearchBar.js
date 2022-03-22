@@ -3,6 +3,18 @@ import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
 import { Entypo, Feather } from "@expo/vector-icons";
 import colors from "../config/colors";
 
+/**
+ * A SearchBar that takes and displays user input from a saerchfield. Has
+ * a little cross to the side of the searchfield, Entypo, that resets the user
+ * input when clicked, along with a cancel button that takes the user out of the
+ * input phase when clicked.
+ * @param {Boolean} clicked Determines if the searchfield is clicked or not
+ * @param {String} searchInput User input that is typed into the searchfield
+ * @param {Function} setClicked Function that changes the value of clicked
+ * @param {Function} setSearchInput Function that changes the value of searchInput
+ * @returns A searchfield with a searchicon, a button to reset user input and
+ * a button to take the user out of the input phase
+ */
 function SearchBar({ clicked, searchInput, setClicked, setSearchInput }) {
   return (
     <View style={styles.container}>

@@ -6,7 +6,7 @@ import DisplayButton from "./DisplayButton";
  * An extension of DisplayButton, this button has an action when it is pressed,
  * the TouchableOpacity gives user feedback when the button is pressed.
  * @param {String} text
- * @param onPress Function that gives the behaviour when the button is pressed.
+ * @param {Function} onPress Function that gives the behaviour when the button is pressed.
  * @returns A button that can display text and be pressed
  */
 function SearchButton({ text, onPress }) {
