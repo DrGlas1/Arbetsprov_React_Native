@@ -1,15 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CitySearchScreen from './app/screens/CitySearchScreen';
-import WelcomeScreen from './app/screens/WelcomeScreen';
-import colors from './app/config/colors';
-import CountrySearchScreen from './app/screens/CountrySearchScreen';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import CitySearchScreen from "./app/screens/CitySearchScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import colors from "./app/config/colors";
+import CountrySearchScreen from "./app/screens/CountrySearchScreen";
+import DisplayScreen from "./app/screens/DisplayScreen";
 
 export default function App() {
   return (
-    <NavigationContainer>    
+    <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen
           name="Welcome"
@@ -18,7 +19,7 @@ export default function App() {
             headerShown: false,
           }}
         />
-        <Stack.Screen 
+        <Stack.Screen
           name="CitySearch"
           component={CitySearchScreen}
           options={{
@@ -27,13 +28,22 @@ export default function App() {
             headerTitle: "City Search",
           }}
         />
-        <Stack.Screen 
+        <Stack.Screen
           name="CountrySearch"
           component={CountrySearchScreen}
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
             headerTitle: "Country Search",
+          }}
+        />
+        <Stack.Screen
+          name="Display"
+          component={DisplayScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: colors.primary,
+            headerTitle: "City Search",
           }}
         />
       </Stack.Navigator>
@@ -44,9 +54,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

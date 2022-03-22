@@ -18,11 +18,10 @@ function CitySearchScreen({ navigation }) {
   useEffect(() => {
     const getData = async () => {
       const apiResponse = await fetch(
-        `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=10&cities=cities15000&&orderby=population&username=weknowit`
+        `http://api.geonames.org/searchJSON?name=${searchInput}&maxRows=20&cities=cities15000&orderby=relevance&username=weknowit`
       );
       const apiData = await apiResponse.json();
       setData(apiData.geonames);
-      console.log(searchInput);
     };
     getData();
   }, [searchInput]);
@@ -40,7 +39,12 @@ function CitySearchScreen({ navigation }) {
           setClicked={setClicked}
         />
 
-        <List searchInput={searchInput} data={data} setClicked={setClicked} />
+        <List
+          searchInput={searchInput}
+          data={data}
+          setClicked={setClicked}
+          navigation={navigation}
+        />
       </SafeAreaView>
     </ImageBackground>
   );

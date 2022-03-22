@@ -9,23 +9,23 @@ import {
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import colors from "../config/colors";
+import SearchButton from "../buttons/SearchButton";
 
-const Item = ({ name }) => (
-  <TouchableOpacity onPress={() => console.log(name)}>
-    <View style={styles.item}>
-      <Text style={styles.title}>{name}</Text>
-    </View>
-  </TouchableOpacity>
-);
-
-function List({ searchInput, setClicked, data }) {
+function List({ searchInput, setClicked, data, navigation }) {
   const renderItem = ({ item }) => {
     if (searchInput === "") {
       return;
     }
 
     if (item.name.toUpperCase().includes(searchInput.toUpperCase().trim())) {
-      return <Item name={item.name} />;
+      return (
+        <View style={styles.button}>
+          <SearchButton
+            text={item.toponymName}
+            onPress={() => navigation.navigate("Display", (item = { item }))}
+          />
+        </View>
+      );
     }
   };
 
@@ -60,6 +60,12 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     color: colors.primary,
     marginRight: "50%",
+  },
+  button: {
+    margin: 4,
+    marginLeft: "5%",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
 

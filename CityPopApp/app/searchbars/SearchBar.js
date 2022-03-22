@@ -45,6 +45,7 @@ function SearchBar({ clicked, searchInput, setSearchInput, setClicked }) {
       <View>
         <Button
           title="Cancel"
+          color={colors.primary}
           onPress={() => {
             Keyboard.dismiss();
             setClicked(false);

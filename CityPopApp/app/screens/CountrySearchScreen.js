@@ -18,7 +18,7 @@ function CountrySearchScreen(props) {
   useEffect(() => {
     const getData = async () => {
       const apiResponse = await fetch(
-        `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=10&featureCode=PCLI&orderby=population&username=weknowit`
+        `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=20&featureCode=PCLI&orderby=population&username=weknowit`
       );
       const apiData = await apiResponse.json();
       setData(apiData.geonames);
@@ -39,7 +39,12 @@ function CountrySearchScreen(props) {
           setClicked={setClicked}
         />
 
-        <List searchInput={searchInput} data={data} setClicked={setClicked} />
+        <List
+          searchInput={searchInput}
+          data={data}
+          setClicked={setClicked}
+          onPress={() => console.log("Funkar")}
+        />
       </SafeAreaView>
     </ImageBackground>
   );
