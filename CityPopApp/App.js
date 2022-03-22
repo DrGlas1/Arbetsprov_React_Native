@@ -1,13 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CitySearchScreen from "./app/screens/CitySearchScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import colors from "./app/config/colors";
-import CountrySearchScreen from "./app/screens/CountrySearchScreen";
 import DisplayScreen from "./app/screens/DisplayScreen";
 import CountryCities from "./app/screens/CountryCities";
+import SearchScreen from "./app/screens/SearchScreen";
 
 export default function App() {
   return (
@@ -22,7 +20,12 @@ export default function App() {
         />
         <Stack.Screen
           name="CitySearch"
-          component={CitySearchScreen}
+          component={SearchScreen}
+          initialParams={{
+            imagePath: "../assets/CitySearchScreen.jpg",
+            nextScreen: "Display",
+            additionalSearchCriteria: "&cities=cities15000",
+          }}
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
@@ -31,7 +34,12 @@ export default function App() {
         />
         <Stack.Screen
           name="CountrySearch"
-          component={CountrySearchScreen}
+          component={SearchScreen}
+          initialParams={{
+            imagePath: "../assets/CitySearchScreen.jpg",
+            nextScreen: "Cities",
+            additionalSearchCriteria: "&featureCode=PCLI",
+          }}
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
@@ -53,7 +61,7 @@ export default function App() {
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
-            headerTitle: "City Search",
+            headerTitle: "",
           }}
         />
       </Stack.Navigator>
