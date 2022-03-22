@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  TextInput,
-  View,
-  Keyboard,
-  Button,
-} from "react-native";
-import { Feather, Entypo } from "@expo/vector-icons";
+import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
+import { Entypo, Feather } from "@expo/vector-icons";
 import colors from "../config/colors";
 
 function SearchBar({ clicked, searchInput, setSearchInput, setClicked }) {

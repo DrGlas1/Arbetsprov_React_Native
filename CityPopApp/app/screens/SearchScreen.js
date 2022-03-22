@@ -8,12 +8,11 @@ function SearchScreen({ navigation, route }) {
   const [searchInput, setSearchInput] = useState("");
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState();
+  const apiUrl = `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=13${route.params.additionalSearchCriteria}&orderby=popultaion&username=weknowit`;
 
   useEffect(() => {
     const getData = async () => {
-      const apiResponse = await fetch(
-        `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=13${route.params.additionalSearchCriteria}&orderby=popultaion&username=weknowit`
-      );
+      const apiResponse = await fetch(apiUrl);
       const apiData = await apiResponse.json();
       setData(apiData.geonames);
     };

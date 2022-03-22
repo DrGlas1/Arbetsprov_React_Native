@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import colors from "./app/config/colors";
-import DisplayScreen from "./app/screens/DisplayScreen";
-import CountryCities from "./app/screens/CountryCities";
+import PopDisplayScreen from "./app/screens/PopDisplayScreen";
+import CitiesDisplayScreen from "./app/screens/CitiesDisplayScreen";
 import SearchScreen from "./app/screens/SearchScreen";
 
 export default function App() {
@@ -48,16 +48,16 @@ export default function App() {
         />
         <Stack.Screen
           name="Display"
-          component={DisplayScreen}
+          component={PopDisplayScreen}
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
-            headerTitle: "City Search",
+            headerTitle: "",
           }}
         />
         <Stack.Screen
           name="Cities"
-          component={CountryCities}
+          component={CitiesDisplayScreen}
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,
