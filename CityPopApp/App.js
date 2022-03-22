@@ -7,6 +7,7 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import colors from "./app/config/colors";
 import CountrySearchScreen from "./app/screens/CountrySearchScreen";
 import DisplayScreen from "./app/screens/DisplayScreen";
+import CountryCities from "./app/screens/CountryCities";
 
 export default function App() {
   return (
@@ -40,6 +41,15 @@ export default function App() {
         <Stack.Screen
           name="Display"
           component={DisplayScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: colors.primary,
+            headerTitle: "City Search",
+          }}
+        />
+        <Stack.Screen
+          name="Cities"
+          component={CountryCities}
           options={{
             headerTransparent: true,
             headerTintColor: colors.primary,

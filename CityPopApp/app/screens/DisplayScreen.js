@@ -4,23 +4,24 @@ import Logo from "../logo/Logo";
 import SearchButton from "../buttons/SearchButton";
 
 function DisplayScreen({ navigation, route }) {
+  const { data } = route.params;
   return (
     <ImageBackground
       style={styles.background}
       source={require("../assets/CitySearchScreen.jpg")}
     >
       <View style={styles.logo}>
-        <Logo text={"CityPop"} />
+        <Logo text={data.toponymName} />
       </View>
 
       <View style={styles.button}>
         <SearchButton
-          text={`Population: ${route.params.item.population}`}
-          onPress={() => navigation.navigate("CitySearch")}
+          text={`Population: ${data.population}`}
+          onPress={() => console.log("TODO!")}
         />
         <SearchButton
-          text="search by country"
-          onPress={() => navigation.navigate("CountrySearch")}
+          text="Return home"
+          onPress={() => navigation.popToTop()}
         />
       </View>
     </ImageBackground>

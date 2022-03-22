@@ -7,11 +7,10 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import colors from "../config/colors";
 import SearchButton from "../buttons/SearchButton";
 
-function List({ searchInput, setClicked, data, navigation }) {
+function List({ searchInput, setClicked, data, navigation, nextScreen }) {
   const renderItem = ({ item }) => {
     if (searchInput === "") {
       return;
@@ -22,7 +21,7 @@ function List({ searchInput, setClicked, data, navigation }) {
         <View style={styles.button}>
           <SearchButton
             text={item.toponymName}
-            onPress={() => navigation.navigate("Display", (item = { item }))}
+            onPress={() => navigation.navigate(nextScreen, { data: item })}
           />
         </View>
       );
