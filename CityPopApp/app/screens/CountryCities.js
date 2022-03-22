@@ -34,8 +34,6 @@ function CountryCities({ navigation, route }) {
     };
     getData();
   }, [data]);
-  console.log(apiUrl);
-  console.log(cities);
 
   return (
     <ImageBackground

@@ -15,10 +15,7 @@ function DisplayScreen({ navigation, route }) {
       </View>
 
       <View style={styles.button}>
-        <SearchButton
-          text={`Population: ${data.population}`}
-          onPress={() => console.log("TODO!")}
-        />
+        <SearchButton text={`Population: ${data.population}`} />
         <SearchButton
           text="Return home"
           onPress={() => navigation.popToTop()}

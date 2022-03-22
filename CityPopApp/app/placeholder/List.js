@@ -1,16 +1,17 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  SafeAreaView,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
 import colors from "../config/colors";
 import SearchButton from "../buttons/SearchButton";
 
-function List({ searchInput, setClicked, data, navigation, nextScreen }) {
+function List({ searchInput, data, navigation, nextScreen }) {
+  const onFlatListEmpty = () => {
+    return (
+      <View>
+        <Text style={styles.err}>No such place</Text>
+      </View>
+    );
+  };
+
   const renderItem = ({ item }) => {
     if (searchInput === "") {
       return;
@@ -28,13 +29,18 @@ function List({ searchInput, setClicked, data, navigation, nextScreen }) {
     }
   };
 
+  const isDataEmpty = (dataObject) => {
+    return dataObject != undefined && dataObject.length === 0 ? [] : dataObject;
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <View onStartShouldSetResponder={() => setClicked(false)}>
+      <View>
         <FlatList
-          data={data}
+          data={isDataEmpty(data)}
           renderItem={renderItem}
           keyExtractor={(item) => item.geonameId}
+          ListEmptyComponent={onFlatListEmpty}
         />
       </View>
     </SafeAreaView>
@@ -60,6 +66,9 @@ const styles = StyleSheet.create({
     marginLeft: "5%",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  err: {
+    fontSize: 20,
   },
 });
 
