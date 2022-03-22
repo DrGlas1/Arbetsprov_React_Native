@@ -4,6 +4,12 @@ import SearchButton from "../buttons/SearchButton";
 import Logo from "../logo/Logo";
 import Styles from "../config/styles";
 
+/**
+ * Initial screen that has two buttons that direct either to the screen
+ * to search for cities or the screen to search for countries
+ * @param navigation Used to navigate to the different screens
+ * @returns A screen with a logo and two buttons for navigation
+ */
 function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground

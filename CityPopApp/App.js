@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -7,7 +7,13 @@ import PopDisplayScreen from "./app/screens/PopDisplayScreen";
 import CitiesDisplayScreen from "./app/screens/CitiesDisplayScreen";
 import SearchScreen from "./app/screens/SearchScreen";
 
+/**
+ * The main app that displays all the different screens.
+ * The navigation is done with NavigationContainer
+ * @returns NavigationContainer containing all the different screens
+ */
 export default function App() {
+  const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
@@ -22,7 +28,6 @@ export default function App() {
           name="CitySearch"
           component={SearchScreen}
           initialParams={{
-            imagePath: "../assets/CitySearchScreen.jpg",
             nextScreen: "Display",
             additionalSearchCriteria: "&cities=cities15000",
           }}
@@ -36,7 +41,6 @@ export default function App() {
           name="CountrySearch"
           component={SearchScreen}
           initialParams={{
-            imagePath: "../assets/CitySearchScreen.jpg",
             nextScreen: "Cities",
             additionalSearchCriteria: "&featureCode=PCLI",
           }}
@@ -77,5 +81,3 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-
-const Stack = createNativeStackNavigator();
