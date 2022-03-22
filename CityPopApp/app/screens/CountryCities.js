@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import SearchButton from "../buttons/SearchButton";
 import Logo from "../logo/Logo";
+import Styles from "../config/styles";
 
 function CountryCities({ navigation, route }) {
   const { data } = route.params;
@@ -38,18 +39,18 @@ function CountryCities({ navigation, route }) {
   return (
     <ImageBackground
       style={styles.background}
-      source={require("../assets/CountrySearchScreen.jpg")}
+      source={require("../assets/CitySearchScreen.jpg")}
     >
-      <View style={styles.logo}>
-        <Logo text={data.name} />
+      <View style={Styles.logo}>
+        <Logo text={data.toponymName} />
       </View>
-      <View>
+      <SafeAreaView style={styles.button}>
         <FlatList
           data={cities.geonames}
           renderItem={renderItem}
           keyExtractor={(item) => item.geonameId}
         />
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 }
@@ -61,15 +62,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    margin: 4,
-    marginLeft: "5%",
+    top: 220,
+    marginTop: "2%",
     alignItems: "center",
     justifyContent: "space-between",
-  },
-  logo: {
-    marginTop: "200%",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 
