@@ -3,7 +3,7 @@ import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
 import { Entypo, Feather } from "@expo/vector-icons";
 import colors from "../config/colors";
 
-function SearchBar({ clicked, searchInput, setSearchInput, setClicked }) {
+function SearchBar({ clicked, searchInput, setClicked, setSearchInput }) {
   return (
     <View style={styles.container}>
       <View
@@ -58,13 +58,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "90%",
   },
-  searchBarNotClicked: {
-    padding: 10,
-    flexDirection: "row",
-    width: "80%",
-    backgroundColor: "#d9dbda",
-    borderRadius: 15,
-    alignItems: "center",
+  input: {
+    fontSize: 20,
+    marginLeft: 10,
+    width: "90%",
+    justifyContent: "center",
   },
   searchBarClicked: {
     padding: 10,
@@ -75,11 +73,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-evenly",
   },
-  input: {
-    fontSize: 20,
-    marginLeft: 10,
-    width: "90%",
-    justifyContent: "center",
+  searchBarNotClicked: {
+    padding: 10,
+    flexDirection: "row",
+    width: "80%",
+    backgroundColor: "#d9dbda",
+    borderRadius: 15,
+    alignItems: "center",
   },
 });
 
