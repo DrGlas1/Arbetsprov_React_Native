@@ -9,9 +9,12 @@ import colors from "../config/colors";
  * @returns A textbox
  */
 function Logo({ text }) {
+  // Cuts off too long country names that ruin the formatting, e.g. the UK
+  const displayText = text.length <= 30 ? text : text.slice(0, 31);
+
   return (
     <View style={styles.border}>
-      <Text style={styles.logo}>{text}</Text>
+      <Text style={styles.logo}>{displayText}</Text>
     </View>
   );
 }
