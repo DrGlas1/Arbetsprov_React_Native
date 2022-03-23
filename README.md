@@ -5,7 +5,28 @@ The app is developed using React Native in Expo Go. To set up the developer envi
 
 Prerequisites
 ---------------------
+
+These programs need to be installed before the Expo environment can be setup, follow the links to install.
 [Node.js LTS release](https://nodejs.org/en/)
+[Git](https://git-scm.com/)
+[Watchman](https://facebook.github.io/watchman/docs/install#buildinstall) for macOS or Linux users.
+
+Installing Expo CLI
+---------------------
+
+Run this command in the terminal to install Expo CLI.
+```
+$ npm i -g expo-cli
+```
+Also useful is to donwload Expo Client on the AppStore for IPhone/Android to easily be able to test the app on the respective devices. 
+
+Starting development
+---------------------
+
+When everything else is set up, clone the repository and navigate to the CityPopApp-folder.
+```
+$ git clone 
+```
 
 File structure of components
 ======================
