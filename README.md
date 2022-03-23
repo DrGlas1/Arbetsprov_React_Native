@@ -14,6 +14,7 @@ This shows the folder structure inside the CityPopApp-folder with quick explanat
 │   ├───buttons     - Buttons for displaying information and switching between screens when pressed
 │   ├───config      - Config file with some shared styles and colors 
 │   ├───list        - List components for showing data
+|   ├───loading     - Component that shows a loading icon until something is loaded
 │   ├───logo        - Component for displaying screen titles
 │   ├───screens     - The base components that take subcomponents and bring them togheter into a screen
 │   └───searchbars  - A component for taking and displaying user input
