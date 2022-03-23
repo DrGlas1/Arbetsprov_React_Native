@@ -1,8 +1,15 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { useState } from "react";
+import {
+  ActivityIndicator,
+  ImageBackground,
+  StyleSheet,
+  View,
+} from "react-native";
 import Logo from "../logo/Logo";
 import Styles from "../config/styles";
 import CityList from "../list/CityList";
+import colors from "../config/colors";
 
 /**
  * A screen that displays a country along with the 5 cities that have the
@@ -14,12 +21,24 @@ import CityList from "../list/CityList";
  */
 function CitiesDisplayScreen({ navigation, route }) {
   const { data } = route.params;
+  const [loading, setLoading] = useState(true);
+  const imageLoaded = () => {
+    setLoading(false);
+  };
 
   return (
     <ImageBackground
       style={styles.background}
       source={require("../assets/CitySearchScreen.jpg")}
+      onLoad={imageLoaded}
     >
+      <View style={styles.loading}>
+        <ActivityIndicator
+          size="large"
+          color={colors.primary}
+          animating={loading}
+        />
+      </View>
       <View style={Styles.logo}>
         <Logo text={data.toponymName} />
       </View>
@@ -33,6 +52,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  loading: {
+    position: "absolute",
+    marginTop: 200,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

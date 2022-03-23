@@ -36,6 +36,7 @@ function SearchList({ searchInput, data, navigation, nextScreen }) {
    * @function
    */
   const onFlatListEmpty = () => {
+    if (data == undefined || data.length !== 0) return <View />;
     return (
       <View style={styles.errBorder}>
         <Text style={styles.errText}>No such place</Text>
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
   button: {
     margin: 4,
     marginLeft: "5%",
+    top: 0,
     alignItems: "center",
     justifyContent: "space-between",
   },

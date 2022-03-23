@@ -1,6 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { ImageBackground, StyleSheet, SafeAreaView } from "react-native";
+import {
+  ActivityIndicator,
+  ImageBackground,
+  StyleSheet,
+  SafeAreaView,
+  View,
+} from "react-native";
+import colors from "../config/colors";
 import SearchList from "../list/SearchList";
 import SearchBar from "../searchbars/SearchBar";
 
@@ -14,12 +21,15 @@ import SearchBar from "../searchbars/SearchBar";
  * @returns A screen that can search and display cities or countries depending on the passed in parameters
  */
 function SearchScreen({ navigation, route }) {
+  const [loading, setLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState();
   const { nextScreen, additionalSearchCriteria } = route.params;
   const apiUrl = `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=13${additionalSearchCriteria}&orderby=population&username=weknowit`;
-
+  const imageLoaded = () => {
+    setLoading(false);
+  };
   /**
    * Updates data to display on list when input into searchfield changes.
    * Gets the data from external API.
@@ -37,7 +47,15 @@ function SearchScreen({ navigation, route }) {
     <ImageBackground
       style={styles.background}
       source={require("../assets/CitySearchScreen.jpg")}
+      onLoad={imageLoaded}
     >
+      <View style={styles.loading}>
+        <ActivityIndicator
+          size="large"
+          color={colors.primary}
+          animating={loading}
+        />
+      </View>
       <SafeAreaView>
         <SearchBar
           searchInput={searchInput}
@@ -63,6 +81,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  loading: {
+    position: "absolute",
+    marginTop: 200,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
