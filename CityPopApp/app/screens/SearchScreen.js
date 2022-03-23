@@ -18,7 +18,7 @@ function SearchScreen({ navigation, route }) {
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState();
   const { nextScreen, additionalSearchCriteria } = route.params;
-  const apiUrl = `http://api.geonames.org/searchJSON?name=${searchInput}&maxRows=13${additionalSearchCriteria}&orderby=popultaion&username=weknowit`;
+  const apiUrl = `http://api.geonames.org/searchJSON?name_startsWith=${searchInput}&maxRows=13${additionalSearchCriteria}&orderby=population&username=weknowit`;
 
   /**
    * Updates data to display on list when input into searchfield changes.

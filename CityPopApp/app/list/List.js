@@ -18,16 +18,14 @@ function List({ searchInput, data, navigation, nextScreen }) {
       return;
     }
 
-    if (item.name.toUpperCase().includes(searchInput.toUpperCase().trim())) {
-      return (
-        <View style={styles.button}>
-          <SearchButton
-            text={item.toponymName}
-            onPress={() => navigation.navigate(nextScreen, { data: item })}
-          />
-        </View>
-      );
-    }
+    return (
+      <View style={styles.button}>
+        <SearchButton
+          text={item.toponymName}
+          onPress={() => navigation.navigate(nextScreen, { data: item })}
+        />
+      </View>
+    );
   };
 
   /**
