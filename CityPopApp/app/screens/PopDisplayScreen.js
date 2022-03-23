@@ -1,16 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import {
-  ActivityIndicator,
-  ImageBackground,
-  StyleSheet,
-  View,
-} from "react-native";
+import { ImageBackground, StyleSheet, View } from "react-native";
 import Logo from "../logo/Logo";
 import SearchButton from "../buttons/SearchButton";
 import Styles from "../config/styles";
 import DisplayButton from "../buttons/DisplayButton";
-import colors from "../config/colors";
+import Loading from "../loading/Loading";
 
 /**
  * Displays the name of the city given from the SearchScreen.
@@ -33,13 +28,7 @@ function PopDisplayScreen({ navigation, route }) {
       source={require("../assets/CitySearchScreen.jpg")}
       onLoad={imageLoaded}
     >
-      <View style={styles.loading}>
-        <ActivityIndicator
-          size="large"
-          color={colors.primary}
-          animating={loading}
-        />
-      </View>
+      <Loading loading={loading} />
       <View style={Styles.logo}>
         <Logo text={data.toponymName} />
       </View>
@@ -68,12 +57,6 @@ const styles = StyleSheet.create({
     top: "9%",
     alignItems: "center",
     justifyContent: "space-between",
-  },
-  loading: {
-    position: "absolute",
-    marginTop: 200,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 

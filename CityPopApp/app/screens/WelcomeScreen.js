@@ -1,16 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import {
-  ActivityIndicator,
-  ImageBackground,
-  StyleSheet,
-  View,
-  Button,
-} from "react-native";
+import { ImageBackground, StyleSheet, View } from "react-native";
 import SearchButton from "../buttons/SearchButton";
 import Logo from "../logo/Logo";
 import Styles from "../config/styles";
-import colors from "../config/colors";
+import Loading from "../loading/Loading";
 
 /**
  * Initial screen that has two buttons that direct either to the screen
@@ -33,13 +27,7 @@ function WelcomeScreen({ navigation }) {
       <View style={Styles.logo}>
         <Logo text={"CityPop"} />
       </View>
-      <View style={styles.loading}>
-        <ActivityIndicator
-          size="large"
-          color={colors.primary}
-          animating={loading}
-        />
-      </View>
+      <Loading loading={loading} />
       <View style={styles.button}>
         <SearchButton
           text="search by city"
@@ -65,12 +53,6 @@ const styles = StyleSheet.create({
     top: "9%",
     alignItems: "center",
     justifyContent: "space-between",
-  },
-  loading: {
-    position: "absolute",
-    marginTop: 200,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 

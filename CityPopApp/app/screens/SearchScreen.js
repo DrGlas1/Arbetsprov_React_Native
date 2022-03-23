@@ -1,15 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {
-  ActivityIndicator,
-  ImageBackground,
-  StyleSheet,
-  SafeAreaView,
-  View,
-} from "react-native";
-import colors from "../config/colors";
+import { ImageBackground, StyleSheet, SafeAreaView } from "react-native";
 import SearchList from "../list/SearchList";
 import SearchBar from "../searchbars/SearchBar";
+import Loading from "../loading/Loading";
 
 /**
  * Screen used to search for information via external API, uses SearchBar
@@ -49,13 +43,7 @@ function SearchScreen({ navigation, route }) {
       source={require("../assets/CitySearchScreen.jpg")}
       onLoad={imageLoaded}
     >
-      <View style={styles.loading}>
-        <ActivityIndicator
-          size="large"
-          color={colors.primary}
-          animating={loading}
-        />
-      </View>
+      <Loading loading={loading} />
       <SafeAreaView>
         <SearchBar
           searchInput={searchInput}
@@ -81,12 +69,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  loading: {
-    position: "absolute",
-    marginTop: 200,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 
