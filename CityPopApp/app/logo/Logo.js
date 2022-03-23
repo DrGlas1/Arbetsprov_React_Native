@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from "react-native";
 import colors from "../config/colors";
 
 /**
- * The logo of some of the screens. Shows the text in a border box
+ * The screen title of some of the screens. Shows the text in a border box
  * to highlight the text.
  * @param {String} text The text that should be displayed on the logo.
  * @returns A textbox
