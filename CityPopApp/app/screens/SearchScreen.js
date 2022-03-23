@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { ImageBackground, StyleSheet, SafeAreaView } from "react-native";
-import List from "../list/List";
+import SearchList from "../list/SearchList";
 import SearchBar from "../searchbars/SearchBar";
 
 /**
@@ -46,7 +46,7 @@ function SearchScreen({ navigation, route }) {
           setClicked={setClicked}
         />
 
-        <List
+        <SearchList
           searchInput={searchInput}
           data={data}
           setClicked={setClicked}

@@ -12,7 +12,7 @@ import SearchButton from "../buttons/SearchButton";
  * @param {String} nextScreen Name of the next screen to be navigated to.
  * @returns A List of elements to display on screen that are SearchButtons
  */
-function List({ searchInput, data, navigation, nextScreen }) {
+function SearchList({ searchInput, data, navigation, nextScreen }) {
   const renderItem = ({ item }) => {
     if (searchInput === "") {
       return;
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default List;
+export default SearchList;
