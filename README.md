@@ -1,7 +1,7 @@
 About
 ======================
 
-CityPop is an app that is used to display cities population count developed using React Native and Expo Go. In the `CityPopApp` folder is the main file, `App.js`.
+CityPop is an app that is used to display cities population count, developed using React Native and Expo Go. In the `CityPopApp` folder is the main file, `App.js`.
 The rest of the components are in the `app` folder and its subfolder.
 
 Folder structure of components
