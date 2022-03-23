@@ -3,16 +3,14 @@ Setting up developer environment
 
 The app is developed using React Native in Expo Go. To set up the developer environment there are a few prerequisite programs to install covered in the next section.
 
-Prerequisites
----------------------
+### Prerequisites
 
 These programs need to be installed before the Expo environment can be setup, follow the links to install.
 [Node.js LTS release](https://nodejs.org/en/)
 [Git](https://git-scm.com/)
 [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall) for macOS or Linux users.
 
-Installing Expo CLI
----------------------
+### Installing Expo CLI
 
 Run this command in the terminal to install Expo CLI.
 ```
@@ -37,8 +35,10 @@ There will show up a link to open Expo Developer Tools to run the app in a web b
 
 To stop the development server from running, press Ctrl+C.
 
-File structure of components
+Folder structure of components
 ======================
+
+This shows the folder structure inside the CityPopApp-folder with quick explanations of the contents.
 ```
 ├───app             - Folder containing all the different components and files that make upp the app
 │   ├───assets      - Folder containing images used for backgrounds to screens
@@ -49,3 +49,5 @@ File structure of components
 │   ├───screens     - The base components that take subcomponents and bring them togheter into a screen
 │   └───searchbars  - A component for taking and displaying user input
 ```
+
+
