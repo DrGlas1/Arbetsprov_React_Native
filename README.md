@@ -25,8 +25,17 @@ Starting development
 
 When everything else is set up, clone the repository and navigate to the CityPopApp-folder.
 ```
-$ git clone 
+$ git clone https://github.com/DrGlas1/Arbetsprov_React_Native.git
+$ cd .\CityPopApp\
 ```
+To start the server run the following command:
+```
+$ npm start
+```
+
+There will show up a link to open Expo Developer Tools to run the app in a web browser or open it up in an IPhone/Android simulator. Alternatively, the app can also be run on a Iphone/Android using the Expo Client app by scanning the QR-code.
+
+To stop the development server from running, press Ctrl+C.
 
 File structure of components
 ======================
